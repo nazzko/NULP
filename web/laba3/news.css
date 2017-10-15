@@ -55,6 +55,23 @@ ul{
     
 }
 
+.border {
+    padding-right: 5px;
+}
+
+.border:hover {
+    box-shadow:
+    1px 1px #00305B,
+    2px 2px #00305B,
+    3px 3px #00305B,
+    4px 4px #00305B,
+    5px 5px #00305B,
+    6px 6px #00305B,
+    7px 7px #00305B;
+  -webkit-transform: translateX(-7px);
+  transform: translateX(-7px);
+}
+
 .menu_drop {
     position: absolute;
     min-width: 150px;
@@ -139,6 +156,11 @@ hr {
     width: 50px;
     border-bottom: 1px solid rgba(50, 54, 68, 1);
 }
+
+.title:hover {
+    color: #42B7C3;
+}
+
 .clear {
     clear: both;
 }

@@ -12,7 +12,7 @@ html, body {
 .logo {
     background-color: black;
     width: 300px;
-    height: 100px;
+    height: 90px;
     position: absolute;
     margin-left: 100px;
 }
@@ -21,8 +21,8 @@ html, body {
 
 .menu {
     background-color: #FFFFFF;
-    height: 100px;
-    line-height: 100px;
+    height: 90px;
+    line-height: 90px;
     position: relative;
 }
 
@@ -35,13 +35,13 @@ ul{
 
 .menu>nav>ul {
     background-color: #fff;
-    padding-left: 700px;
+    padding-left: 650px;
 }
 
 .menu>nav>ul>li {
     display: inline-block;
     list-style: none;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 .menu>nav>ul>li a {
@@ -53,7 +53,24 @@ ul{
 
 .menu>nav>ul>li a:hover {
     color: #42B7C3;
-    transition: 0.2s all;   
+    transition: 0.2s all; 
+}
+
+.border {
+    padding-right: 5px;
+}
+
+.border:hover {
+    box-shadow:
+    1px 1px #00305B,
+    2px 2px #00305B,
+    3px 3px #00305B,
+    4px 4px #00305B,
+    5px 5px #00305B,
+    6px 6px #00305B,
+    7px 7px #00305B;
+  -webkit-transform: translateX(-7px);
+  transform: translateX(-7px);
 }
 
 .menu_drop {
@@ -112,18 +129,35 @@ ul{
     transform: translateZ(-1px) scale(2);
 }
 
+/*----------TiTle----------*/
+
 .title {
     margin-top: 300px;
     margin-left: 100px;
     position: absolute;
     text-transform: uppercase;
     color: #fff;
+    animation: bounceIn 2s;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .transparent {
     width: 600px;
     height: 1400px;
-    background-color: #00305B;
+    background:#00305B;
     opacity: 0.5;
     position: absolute;
 }
@@ -189,14 +223,14 @@ p{
 
 footer {
     overflow: hidden;
-    padding: 30px 36px 0 35px;
+    padding: 30px 36px 30px 35px;
     background: #1e2528;
     margin-bottom: -17px;
 }
 
 .footer_top{
     position: relative;
-    margin: 20px;
+    margin: 60px;
     padding: 0;
     font-size: 10px;
 }
@@ -218,6 +252,10 @@ footer {
     color: #fff;
 }
 
+.foot {
+    font-size: 15px;
+}
+
 .second {
     text-decoration: none;
     display: block;
@@ -234,5 +272,6 @@ h5 {
     font-size: 10px;
     text-align: center;
     color:#fff;
+    margin-top: 30px;
 }
 
