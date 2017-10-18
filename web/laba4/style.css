@@ -11,6 +11,19 @@ li {
     padding-left: 10px;
 }
 
+a:hover {
+    color: #fff !important; 
+    
+}
+
+.dropdown-menu>li>a:hover {
+    color: black !important;
+}
+
+.navbar-brand:hover {
+    color: #3b8595 !important;
+}
+
 /*-------------Parallax--------------*/
 /* Override UGG site */
 #main {
@@ -106,6 +119,7 @@ li {
     padding: 60px; 
     margin:0 auto; 
     text-align:center;
+    animation: bounceIn 2s;
 }
 
 #parallax-world-of-ugg .title h1 {
@@ -191,8 +205,21 @@ li {
       width:420px;
     }
     
+    @media (max-width: 767px) and (max-width: 959px) {
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+}
+    }
+
+@media (max-width: 767px) and (max-width: 959px) {
+.nropdown-toggle {
+    color: black !important;
+}
+    }
+    
   #parallax-world-of-ugg h2 {
       font-size:30px;
+     color:lightcoral !important;
     }
   #parallax-world-of-ugg .block {
       padding: 30px;
