@@ -1,0 +1,20 @@
+CACHE MANIFEST
+
+CACHE:
+main.html
+css/style.css
+comments.html
+comments.css
+news.html
+news.css
+Plan.html
+plan.css
+error.html
+error.css
+
+NETWORK
+admin.html
+
+FALLBACK:
+news.html /error.html
+admin/html /error/html
