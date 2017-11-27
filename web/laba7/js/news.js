@@ -36,13 +36,27 @@ $("#button").click(function validateForm() {
         alert("Опубліковано!")
     }
     else {
+        if (useLocalStorage){
         i++;
          var list = [];
-         list.push({"title":$('#title').val(),
-            "long_description":$('#long_description').val()});
+         list.push({
+             "title":$('#title').val(),
+             "long_description":$('#long_description').val()
+         });
          localStorage.setItem(i, JSON.stringify(list));
-         $('#long_description').val('');
-         $('#title').val('');
+         
+        } else {
+            var transaction = db.transaction(["news"], "readwrite");
+            var store = transaction.objectStore("news");
+            var news1 = {
+                title: $('#title').val(),
+                longdescription: $('#long_description').val()
+            };
+            store.add(news1);
+        }
+        
+        $('#long_description').val('');
+        $('#title').val('');
     }
 });
 
@@ -62,6 +76,7 @@ window.addEventListener('load', function() {
 });
 
 function ReadOflineNews() {
+    if (useLocalStorage) {
     len = localStorage.length + 1;
     for (var k = 1; k < len; k++) {
         $("#news_list").prepend("<div class='col-sm-6 col-md-4'>" +
@@ -81,6 +96,33 @@ function ReadOflineNews() {
         $('#news_list .col-sm-6:first .long_description').append(news[0].long_description);
 
         localStorage.removeItem(k);
+        }
+        
+    } else 
+        {
+        var transaction = db.transaction(["news"], "readonly");
+        var store = transaction.objectStore("news");
+            
+            store.openCursor().onsuccess = function (event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                cursor.continue();
+                $("#news_list").prepend("<div class='col-sm-6 col-md-4'>" +
+         "<div class='news-item'>" + 
+          "<div class='newsphoto'>" +
+           "<img src='images/1.jpg' width='100%' height='100%'></div>" +
+            "<div class='body-news'>" +
+             "<h4 class='title'></h4>" +
+             "<hr>" +
+             "<p class='long_description'></p></div></div></div>");
+                
+        $('#news_list .col-sm-6:first .title').append(cursor.value.title);
+        $('#news_list .col-sm-6:first .long_description').append(cursor.value.long_description);
+
+    }
     }
 }
+}
+            
+
 
