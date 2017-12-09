@@ -29,8 +29,8 @@ function ReadOflineReview() {
         $('#comment_list li:last .panel-body').append(review[0].message);
 
         localStorage.removeItem(k);
-    }
-    } else {
+        }
+    }    else {
         var transaction = db.transaction(["comments"], "readonly");
         var store = transaction.objectStore("comments");
             
@@ -42,9 +42,9 @@ function ReadOflineReview() {
                 
                 $('#comment_list li:last .text-muted').append(cursor.value.time);
                 $('#comment_list li:last .panel-body').append(cursor.value.message);
-    }
-}
-    }
+                }
+            }
+        }
 }
 
 //validation form of comments

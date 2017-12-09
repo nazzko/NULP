@@ -13,11 +13,11 @@ $("#button").click(function validateForm() {
         alert("Ви не заповнили повний опис");
         return false;
     }
-    
-     if (title !== "" && lng_desc !== "" && isOnline()){ 
-            var title = document.getElementById("title").value;
-            var lng_desc = document.getElementById("long_description").value;
-            var parentElem = document.getElementById('news_list'); 
+     if (isOnline()){ 
+
+            var title = document.getElementById('title').value;
+            var lng_desc = document.getElementById('long_description').value;
+            var parentElement = $('#news_list'); 
             var out = document.createElement('div');
             out.id = 'news';
             out.innerHTML = "<div class='col-sm-6 col-md-4'>" +
@@ -29,8 +29,8 @@ $("#button").click(function validateForm() {
              "<hr>" +
              "<p class='long_description'>"+lng_desc+"</p></div></div></div>";
 
-            parentElem.appendChild(out);
- 
+            parentElement.append(out);
+        
         document.getElementById('title').value='';
         document.getElementById('long_description').value='';
         alert("Опубліковано!")
@@ -50,7 +50,7 @@ $("#button").click(function validateForm() {
             var store = transaction.objectStore("news");
             var news1 = {
                 title: $('#title').val(),
-                longdescription: $('#long_description').val()
+                long_description: $('#long_description').val()
             };
             store.add(news1);
         }

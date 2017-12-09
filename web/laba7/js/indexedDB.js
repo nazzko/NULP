@@ -1,4 +1,4 @@
-var useLocalStorage = true;
+var useLocalStorage = false;
 
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 IDBTransaction  = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
